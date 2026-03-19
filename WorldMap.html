@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My World by amCharts</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, minimal-ui">
+    <style>
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+html {
+	height: 100%;
+}
+
+#chartdiv {
+	width: 100%;
+	height: 100%;
+}
+    </style>
+  </head>
+  <body>
+
+
+<script src="https://cdn.amcharts.com/lib/editor/map/5/viewer.js"></script>
+<div id="chartdiv"></div>
+<script>
+
+/**
+ * -----------------------------------------------
+ * This map was created using amCharts Map Editor.
+ *
+ * To create your own map visit:
+ * https://pixelmap.amcharts.com/
+ *
+ * For more information on amCharts visit:
+ * https://www.amcharts.com/
+ * -----------------------------------------------
+ */
+
+am5viewer.create("chartdiv", {
+  "settings": {
+    "editor": {
+      "themeTags": [
+        "dark"
+      ],
+      "userData": {
+        "projection": "geoMercator",
+        "geodata": "worldLow"
+      },
+      "fillColor": {
+        "type": "Color",
+        "value": "#f3eeee"
+      }
+    },
+    "editor.map": {
+      "minZoomLevel": 1.8,
+      "maxZoomLevel": 8,
+      "homeZoomLevel": 2.5,
+      "zoomLevel": 2.5,
+      "homeGeoPoint": {
+        "latitude": 52,
+        "longitude": 14
+      },
+      "projection": "geoMercator",
+      "panX": "translateX",
+      "panY": "translateY",
+      "zoomControl": {
+        "type": "ZoomControl",
+        "settings": {
+          "visible": true,
+          "position": "absolute",
+          "layout": {
+            "type": "VerticalLayout"
+          },
+          "themeTags": [
+            "zoomtools"
+          ],
+          "layer": 30
+        }
+      },
+      "background": {
+        "type": "Rectangle",
+        "settings": {
+          "fill": {
+            "type": "Color",
+            "value": "#1a1a1a"
+          },
+          "fillOpacity": 1,
+          "width": 1913,
+          "height": 961,
+          "x": 0,
+          "y": 0,
+          "fillPattern": {
+            "type": "GrainPattern",
+            "settings": {
+              "maxOpacity": 0.08,
+              "density": 0.2,
+              "colors": [
+                {
+                  "type": "Color",
+                  "value": "#aaaaaa"
+                }
+              ]
+            }
+          },
+          "isMeasured": false
+        }
+      },
+      "themeTags": [
+        "map"
+      ]
+    },
+    "editor.pointTemplate": {
+      "toggleKey": "active",
+      "centerX": {
+        "type": "Percent",
+        "value": 50
+      },
+      "centerY": {
+        "type": "Percent",
+        "value": 50
+      },
+      "tooltipText": "{name}"
+    },
+    "editor.bubbleTemplate": {
+      "toggleKey": "active",
+      "tooltipText": "{name}: {value}"
+    },
+    "editor.pixelTemplate": {
+      "tooltipText": "{name}",
+      "toggleKey": "active"
+    },
+    "editor.linePointTemplate": {
+      "toggleKey": "active",
+      "centerX": {
+        "type": "Percent",
+        "value": 50
+      },
+      "centerY": {
+        "type": "Percent",
+        "value": 50
+      },
+      "tooltipText": "{name}"
+    },
+    "editor.labelTemplate": {
+      "toggleKey": "active",
+      "tooltipText": "{name}"
+    },
+    "editor.polygonSeries": {
+      "valueField": "value",
+      "calculateAggregates": true,
+      "id": "polygonseries",
+      "exclude": [
+        "AQ"
+      ],
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id"
+    },
+    "editor.lineSeries": {
+      "layer": 30,
+      "id": "lineseries",
+      "lineTypeField": "lineType",
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id"
+    },
+    "editor.pointSeries": {
+      "fixedField": "fixed",
+      "id": "pointseries",
+      "longitudeField": "longitude",
+      "latitudeField": "latitude",
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id"
+    },
+    "editor.labelSeries": {
+      "fixedField": "fixed",
+      "id": "labelseries",
+      "longitudeField": "longitude",
+      "latitudeField": "latitude",
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id"
+    },
+    "editor.bubbleSeries": {
+      "calculateAggregates": true,
+      "valueField": "value",
+      "polygonIdField": "id",
+      "id": "bubbleseries",
+      "longitudeField": "longitude",
+      "latitudeField": "latitude",
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id"
+    },
+    "editor.gridSeries": {
+      "themeTags": [
+        "grid"
+      ],
+      "affectsBounds": false,
+      "lineTypeField": "lineType",
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id",
+      "clipExtent": true
+    },
+    "editor.backgroundSeries": {
+      "visible": false,
+      "themeTags": [
+        "polygon",
+        "background"
+      ],
+      "affectsBounds": false,
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id"
+    },
+    "editor.backgroundSeries.mapPolygons.template": {
+      "forceInactive": true
+    },
+    "editor.gridSeries.mapLines.template": {
+      "forceInactive": true
+    }
+  },
+  "data": {
+    "editor.polygonSeries": [
+      {
+        "id": "NL",
+        "name": "Netherlands",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "TW",
+        "name": "Taiwan",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "SE",
+        "name": "Sweden",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "RO",
+        "name": "Romania",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "PT",
+        "name": "Portugal",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "PL",
+        "name": "Poland",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "NO",
+        "name": "Norway",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            },
+            "strokeWidth": 0.5,
+            "fillOpacity": 1
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "MC",
+        "name": "Monaco",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "LU",
+        "name": "Luxembourg",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "HU",
+        "name": "Hungary",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "FR",
+        "name": "France",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "FI",
+        "name": "Finland",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "EE",
+        "name": "Estonia",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "ES",
+        "name": "Spain",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "DK",
+        "name": "Denmark",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "DE",
+        "name": "Germany",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "CZ",
+        "name": "Czechia",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "CN",
+        "name": "China",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "BE",
+        "name": "Belgium",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fill": {
+              "type": "Color",
+              "value": "#f3eeee"
+            }
+          }
+        },
+        "__parse": true
+      }
+    ],
+    "editor.lineSeries": [],
+    "editor.pointSeries": [],
+    "editor.labelSeries": [],
+    "editor.bubbleSeries": [],
+    "editor.gridSeries": []
+  }
+});
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blake Wang | AI Engineer</title>
+    <meta
+      name="description"
+      content="Blake Wang is an AI engineer building reliable AI systems, full-stack products, and production-ready software."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=6" />
+  </head>
+  <body>
+    <canvas id="networkCanvas" aria-hidden="true"></canvas>
+
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#intro">BLAKE_WANG</a>
+        <div class="topbar-links" aria-label="Contact links">
+          <a href="mailto:blake_wangziyi@outlook.com">Email</a>
+          <a href="tel:+46793541961">+46 793 541 961</a>
+          <a href="https://github.com/wzywzywzy" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.kaggle.com/ziyi777" target="_blank" rel="noreferrer">Kaggle</a>
+          <a href="https://www.linkedin.com/in/blake-wang-8a31b0233/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </header>
+
+      <main class="screen-stack">
+        <section class="screen active" id="intro" data-screen="0">
+          <div class="section hero-layout">
+            <div class="hero-copy">
+              <p class="eyebrow">AI Engineer · Full-Stack Builder · Stockholm</p>
+              <h1>AI engineer for real products.</h1>
+              <p class="lede">
+                Master&apos;s student in Computer Science with hands-on experience across autonomous driving,
+                enterprise AI, industrial audio, and modern web products.
+              </p>
+              <div class="hero-pills">
+                <span>Applied AI</span>
+                <span>Full-Stack Delivery</span>
+                <span>Production Mindset</span>
+              </div>
+              <div class="hero-actions">
+                <button class="button button-primary" type="button" data-screen-jump="2">See Experience</button>
+                <button class="button button-secondary" type="button" data-screen-jump="3">See Work</button>
+              </div>
+            </div>
+
+            <div class="portrait-shell">
+              <div class="portrait-frame">
+                <div class="portrait-topline">
+                  <span class="status-dot"></span>
+                  <span>live profile signal</span>
+                </div>
+                <canvas id="avatarCanvas" width="760" height="920" aria-label="Stylized portrait"></canvas>
+                <div class="portrait-tags">
+                  <span>Reliable</span>
+                  <span>Product-minded</span>
+                  <span>System-level</span>
+                </div>
+                <img id="sourcePortrait" src="./assets/profile.png" alt="Portrait of Blake Wang" hidden />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="profile" data-screen="1">
+          <div class="section profile-layout">
+            <div class="section-heading">
+              <p class="section-tag">Profile</p>
+              <h2>What I bring.</h2>
+            </div>
+
+            <div class="profile-map" aria-label="Countries where Blake Wang has studied, worked, or lived">
+              <iframe
+                class="profile-map-frame"
+                src="./WorldMap.html"
+                title="World map"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              ></iframe>
+            </div>
+            <p class="map-note">These are the countries where I have lived and worked. I love exploring this planet, and maybe Mars is next.</p>
+
+            <div class="profile-grid">
+              <article class="panel statement-panel">
+                <p>
+                  Double-degree MSc in Computer Science at KTH Royal Institute of Technology and the
+                  University of Twente, built on a Software Engineering BSc from Harbin Institute of Technology.
+                </p>
+                <p>
+                  Most valuable in roles that need both technical depth and delivery: applied AI,
+                  full-stack product building, data systems, and engineering execution across research
+                  and production environments.
+                </p>
+              </article>
+
+              <article class="panel facts-panel">
+                <div class="fact-row"><span>Target roles</span><strong>AI Engineer · Applied ML · Full-Stack AI</strong></div>
+                <div class="fact-row"><span>Core stack</span><strong>Python · TypeScript · SQL · React · Azure</strong></div>
+                <div class="fact-row"><span>Strength</span><strong>Turning complex systems into usable products</strong></div>
+                <div class="fact-row"><span>Languages</span><strong>Chinese · English</strong></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="experience" data-screen="2">
+          <div class="section experience-layout">
+            <div class="section-heading">
+              <p class="section-tag">Experience</p>
+              <h2>Places where the work had consequences.</h2>
+            </div>
+
+            <div class="experience-grid">
+              <article class="experience-card">
+                <div class="company-head">
+                  <div class="company-logo">
+                    <img class="company-logo-img" src="./assets/logos/scania.svg" alt="Scania logo" loading="lazy" />
+                  </div>
+                <div>
+                  <h3>Scania</h3>
+                  <p>Master Thesis Worker</p>
+                </div>
+                <span class="role-year">2025</span>
+              </div>
+                <p class="role-blurb">Built HD map SLAM architecture that improved map updates and localization accuracy for autonomous driving.</p>
+              </article>
+
+              <article class="experience-card">
+                <div class="company-head">
+                  <div class="company-logo">
+                    <img class="company-logo-img" src="./assets/logos/xpeng.ico" alt="Xpeng logo" loading="lazy" />
+                  </div>
+                <div>
+                  <h3>Xpeng</h3>
+                  <p>Technical Support Engineer</p>
+                </div>
+                <span class="role-year">2024 - 2025</span>
+              </div>
+                <p class="role-blurb">Delivered vehicle data acquisition and validation tooling for L2+ autonomous driving road tests.</p>
+              </article>
+
+              <article class="experience-card">
+                <div class="company-head">
+                  <div class="company-logo">
+                    <img class="company-logo-img" src="./assets/logos/ericsson.svg" alt="Ericsson logo" loading="lazy" />
+                  </div>
+                <div>
+                  <h3>Ericsson</h3>
+                  <p>Audio Engineering R&amp;D Intern</p>
+                </div>
+                <span class="role-year">2024</span>
+              </div>
+                <p class="role-blurb">Developed a lower-latency spatial audio renderer with real-time control and cross-platform delivery.</p>
+              </article>
+
+              <article class="experience-card">
+                <div class="company-head">
+                  <div class="company-logo">
+                    <img class="company-logo-img" src="./assets/logos/huawei.svg" alt="Huawei logo" loading="lazy" />
+                  </div>
+                <div>
+                  <h3>Huawei</h3>
+                  <p>AI Algorithm R&amp;D Intern</p>
+                </div>
+                <span class="role-year">2022</span>
+              </div>
+                <p class="role-blurb">Worked on DNN training acceleration and sparsification for next-generation AI hardware.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="work" data-screen="3">
+          <div class="section work-layout">
+            <div class="section-heading">
+              <p class="section-tag">Selected Work</p>
+              <h2>Shipped products and applied systems.</h2>
+            </div>
+
+            <div class="project-grid">
+              <article class="project-card project-primary">
+                <div class="project-header">
+                  <span class="project-label">Healthcare AI</span>
+                  <span class="project-year">2026</span>
+                </div>
+                <h3>Erholcare</h3>
+                <p>Built a scheduling agent and enterprise workflow system for a multi-tenant healthcare AI platform.</p>
+                <div class="chip-row">
+                  <span>React</span>
+                  <span>Quart</span>
+                  <span>Azure</span>
+                  <span>LLM Agents</span>
+                </div>
+                <a class="project-link" href="https://erholcare.se/" target="_blank" rel="noreferrer">Visit Product</a>
+              </article>
+
+              <article class="project-card">
+                <div class="project-header">
+                  <span class="project-label">Marketplace</span>
+                  <span class="project-year">2025 - 2026</span>
+                </div>
+                <h3>PassPal</h3>
+                <p>Built a real-time marketplace product with bilingual UX, notifications, and automated order handling.</p>
+                <div class="chip-row">
+                  <span>Next.js</span>
+                  <span>TypeScript</span>
+                  <span>Supabase</span>
+                </div>
+                <a class="project-link" href="https://passpal.net/" target="_blank" rel="noreferrer">Visit Product</a>
+              </article>
+
+              <article class="project-card">
+                <div class="project-header">
+                  <span class="project-label">Hackathon Project</span>
+                  <span class="project-year">2024</span>
+                </div>
+                <h3>Mask2Former-AI-Image-Detection</h3>
+                <p>Built an AI image detection system in a hackathon and won second place with the final project demo.</p>
+                <div class="chip-row">
+                  <span>Mask2Former</span>
+                  <span>PyTorch</span>
+                  <span>Computer Vision</span>
+                </div>
+                <a class="project-link" href="https://github.com/RijieHao/Mask2Former-AI-Image-Detection" target="_blank" rel="noreferrer">View on GitHub</a>
+              </article>
+
+              <article class="project-card">
+                <div class="project-header">
+                  <span class="project-label">Distributed Database</span>
+                  <span class="project-year">2024</span>
+                </div>
+                <h3>OmniSpacetimeDB</h3>
+                <p>A distributed database project I really enjoy, focused on Omni-Paxos style replication and system consistency.</p>
+                <div class="chip-row">
+                  <span>Omni-Paxos</span>
+                  <span>Distributed Systems</span>
+                  <span>Rust</span>
+                </div>
+                <a class="project-link" href="https://github.com/Lithiumcr/OmniSpacetimeDB" target="_blank" rel="noreferrer">View on GitHub</a>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./main.js?v=6"></script>
+  </body>
+</html>
