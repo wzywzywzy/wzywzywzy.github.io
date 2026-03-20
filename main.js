@@ -602,3 +602,6 @@ if (image.complete) {
 }
 
 updateScreenStyles();
+requestAnimationFrame(() => {
+  body.classList.add("is-ready");
+});

@@ -33,6 +33,15 @@ body {
   overflow: hidden;
 }
 
+body:not(.is-ready) #networkCanvas {
+  opacity: 0;
+}
+
+body:not(.is-ready) .page-shell {
+  opacity: 0;
+  transform: translate3d(0, 8px, 0);
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -60,12 +69,14 @@ button {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  transition: opacity 420ms ease;
 }
 
 .page-shell {
   position: relative;
   z-index: 2;
   height: 100%;
+  transition: opacity 420ms ease, transform 420ms ease;
 }
 
 .topbar {
@@ -158,6 +169,7 @@ button {
     opacity 620ms ease,
     filter 620ms ease;
   will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .section {
@@ -436,6 +448,24 @@ h1 {
   padding: 1.35rem;
 }
 
+.experience-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(150deg, rgba(20, 24, 30, 0.85), rgba(10, 12, 16, 0.82)),
+    rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(174, 227, 255, 0.14);
+  backdrop-filter: blur(8px);
+}
+
+.experience-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 12% 0%, rgba(174, 227, 255, 0.12), transparent 42%);
+  pointer-events: none;
+}
+
 .company-head,
 .project-header {
   display: flex;
@@ -561,6 +591,10 @@ h1 {
   .section {
     width: min(92vw, 100%);
   }
+
+  .section-heading h2 {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 1520px) {
@@ -584,6 +618,8 @@ h1 {
 
   .topbar-links {
     justify-content: start;
+    gap: 0.65rem;
+    row-gap: 0.5rem;
   }
 
   .screen-stack {
@@ -608,8 +644,67 @@ h1 {
   }
 
   .section {
-    padding-top: 2rem;
-    padding-bottom: 3rem;
+    width: min(95vw, 100%);
+    padding-top: 1.4rem;
+    padding-bottom: 2.2rem;
+  }
+
+  .section-heading {
+    margin-bottom: 1.25rem;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.75rem, 8vw, 2.45rem);
+  }
+
+  .profile-map-frame {
+    height: 220px;
+  }
+
+  .map-note {
+    margin-top: -0.55rem;
+    margin-bottom: 1.15rem;
+    font-size: clamp(1.2rem, 6vw, 1.5rem);
+  }
+
+  .experience-card,
+  .project-card,
+  .panel {
+    padding: 1.06rem;
+    border-radius: 1.25rem;
+  }
+
+  .company-head {
+    align-items: flex-start;
+    gap: 0.68rem;
+    margin-bottom: 0.76rem;
+  }
+
+  .company-head h3,
+  .project-card h3 {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .company-head p,
+  .project-card p,
+  .role-blurb,
+  .panel p {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .role-year,
+  .project-year {
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+  }
+
+  .project-link {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.76rem;
+    padding: 0.52rem 0.72rem;
   }
 
   .fact-row {
